@@ -48,11 +48,12 @@ public class ExemploCursos {
 //		.filter(c -> c.getAlunos() >= 100)
 //		.findAny()
 //		.ifPresent(curso -> System.out.println(curso.getNome()));
-
-		cursos = cursos.stream()
-				.filter(c -> c.getAlunos() >= 100)
-				.collect(Collectors.toList());
-			
-		cursos.forEach(curso -> System.out.println(curso.getNome()));
+		 
+		 cursos.stream()
+		 	.filter(c -> c.getAlunos() > 100)
+		 	.collect(Collectors.toMap(c -> c.getNome(), 
+		 							  c -> c.getAlunos()))
+		 	.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + " alunos"));
+		 
 	}
 }
