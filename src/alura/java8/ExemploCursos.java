@@ -49,5 +49,10 @@ public class ExemploCursos {
 //		.findAny()
 //		.ifPresent(curso -> System.out.println(curso.getNome()));
 
+		cursos = cursos.stream()
+				.filter(c -> c.getAlunos() >= 100)
+				.collect(Collectors.toList());
+			
+		cursos.forEach(curso -> System.out.println(curso.getNome()));
 	}
 }
