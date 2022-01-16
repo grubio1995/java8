@@ -36,7 +36,7 @@ public class OrdenaString {
 		System.out.println("\n");
 
 		System.out.println("Lambda:");
-		palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length())); //LAMBDA
+		palavras.sort(Comparator.comparing(p -> p.length())); //LAMBDA
 		System.out.println(palavras);
 		System.out.println("\n");
 		
