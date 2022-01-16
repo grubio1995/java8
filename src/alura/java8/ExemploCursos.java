@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 class Curso {
 	private String nome;
@@ -34,16 +37,17 @@ public class ExemploCursos {
 		
 		cursos.sort(Comparator.comparing(Curso::getAlunos));
 			
-		int soma = cursos.stream()
+		 OptionalDouble media = cursos.stream()
 			.filter(curso -> curso.getAlunos() >= 100)
 			.mapToInt(Curso::getAlunos)
-			.sum();
+			.average();
 		
-		System.out.println(soma);
+//		System.out.println(soma);
 		
-		cursos.stream()
-			.filter(c -> c.getAlunos() >= 100)
-			.findAny()
-			.ifPresent(curso -> System.out.println(curso.getNome()));
+//		cursos.stream()
+//		.filter(c -> c.getAlunos() >= 100)
+//		.findAny()
+//		.ifPresent(curso -> System.out.println(curso.getNome()));
+
 	}
 }
